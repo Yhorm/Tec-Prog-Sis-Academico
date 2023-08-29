@@ -1,8 +1,8 @@
 #pragma once
 
-#include "departamento.h"
-#include "universidade.h"
-#include "disciplina.h"
+#include "../headers/departamento.h"
+#include "../headers/universidade.h"
+#include "../headers/disciplina.h"
 
 //CONSTRUTORAS E DESTRUTORAS:
 Departamento::Departamento(std::string dName)

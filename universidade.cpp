@@ -1,5 +1,5 @@
 #include <iostream>
-#include "universidade.h"
+#include "../headers/universidade.h"
 
 using namespace std;
 
@@ -16,6 +16,12 @@ Universidade::Universidade(std::string nome)
 
 Universidade::Universidade()
 {
+	Inicializa("");
+	for (int i = 0; i < DEP_QTD_MAX; i++)
+	{
+		depAfil[i] = NULL;
+	}
+
 }
 
 Universidade::~Universidade()

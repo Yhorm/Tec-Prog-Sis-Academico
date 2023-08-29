@@ -4,9 +4,9 @@
 #define _CRT_SECURE_NO_WARNINGS
 #endif
 
-#include "disciplina.h"
-#include "Aluno.h"
-#include "professor.h"
+#include "../headers/disciplina.h"
+#include "../headers/Aluno.h"
+#include "../headers/professor.h"
 #include <time.h>
 
 
@@ -54,4 +54,16 @@ class Principal
 		void showUniAfil();
 		void listDiscDeps();
 		void listAlunosDisc();
+
+
+		void Menu();
+		void menuCad();
+		void menuExec();
+
+		void cadAluno();
+		void cadDisci();
+		void cadDep();
+		void cadUni();
+
 };
+

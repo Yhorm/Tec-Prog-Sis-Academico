@@ -1,6 +1,6 @@
 #pragma once
 
-#include "pessoa.h"
+#include "../headers/pessoa.h"
 
 class Professor : public Pessoa
 {

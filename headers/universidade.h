@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 
-#include "departamento.h"
+#include "../headers/departamento.h"
 
 #define DEP_QTD_MAX 50
 

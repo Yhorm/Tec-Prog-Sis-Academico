@@ -1,11 +1,14 @@
-#include "pessoa.h"
+#include "../headers/pessoa.h"
 //CONSTRUTORAS E DESTRUTORA
 Pessoa::Pessoa(int dia, int mes, int ano, std::string nome)
 {
 	Inicializa(dia, mes, ano, nome);
 }
 
-Pessoa::Pessoa() {}
+Pessoa::Pessoa() 
+{
+	Inicializa(-1, -1, -1);
+}
 
 
 Pessoa::~Pessoa() {}

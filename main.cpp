@@ -1,5 +1,5 @@
 #include <iostream>
-#include "principal.h"
+#include "../headers/principal.h"
 
 int main()
 {	

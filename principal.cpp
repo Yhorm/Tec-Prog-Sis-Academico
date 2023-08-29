@@ -1,4 +1,4 @@
-#include "principal.h"
+#include "../headers/principal.h"
 
 Principal::Principal()
 {
@@ -170,3 +170,141 @@ void Principal::listAlunosDisc()
 	Metodos2_2007.listAlunos();
 	printf("\n");
 }
+
+void Principal::Menu()
+{
+	int opt = 0;
+
+	while (opt != -3)
+	{
+		system("cls");
+		cout << "-------- SELECIONE UMA DAS OPÇÕES ABAIXO --------" << endl;
+		cout << "-------- 1 - CADASTRAR --------" << endl;
+		cout << "-------- 2 - EXECUTAR --------" << endl;
+		cout << "-------- 3 - SAIR  --------" << endl;
+		cin >> opt;
+
+
+		switch (opt)
+		{
+		case 1: {
+			menuCad();
+		}
+			  break;
+		case 2: {
+			menuExec();
+		}
+			  break;
+		case 3: {
+			cout << "SAINDO DO SISTEMA" << endl;
+		}
+			  break;
+		default: {
+			cout << "OPÇÃO INVÁLIDA. " << endl;
+			system("Pause");
+		}
+		}
+	}
+}
+
+
+void Principal::menuCad()
+{
+	int opt = 0;
+
+	while (opt != 5)
+	{
+		system("cls");
+		cout << "-------- SELECIONE UMA DAS OPÇÕES ABAIXO --------" << endl;
+		cout << "-------- 1 - CADASTRAR UM ALUNO --------" << endl;
+		cout << "-------- 2 - CADASTRAR UMA UNIVERSIDADE --------" << endl;
+		cout << "-------- 3 - CADASTRAR UM DEPARTAMENTO --------" << endl;
+		cout << "-------- 4 - CADASTRAR UMA DISCIPLINA  --------" << endl;
+		cin >> opt;
+
+		switch (opt)
+		{
+			case 1:
+			{
+				cadAluno();
+			}
+			break;
+			case 2:
+			{
+				cadUni();
+			}
+			break;
+			case 3:
+			{
+				cadDep();
+			}
+			break;
+			case 4:
+			{
+				cadDisci();
+			}
+			case 5:
+			{
+				cout << "SAINDO DO SISTEMA" << endl;
+			}
+			break;
+			default: 
+			{
+				cout << "OPÇÃO INVÁLIDA." << endl;
+				system("Pause");
+			}
+		}
+	}
+}
+void Principal::menuExec()
+{
+	int opt = 0;
+	while(opt != 5)
+	{
+		system("cls");
+		cout << "-------- SELECIONE UMA DAS OPÇÕES ABAIXO --------" << endl;
+		cout << "-------- 1 - LISTAR ALUNOS --------" << endl;
+		cout << "-------- 2 - LISTAR AS UNIVERSIDADE --------" << endl;
+		cout << "-------- 3 - LISTAR OS DEPARTAMENTO --------" << endl;
+		cout << "-------- 4 - LISTAR AS DISCIPLINAS  --------" << endl;
+		cin >> opt;
+
+		switch (opt)
+		{
+		case 1:
+		{
+		}
+		break;
+		case 2:
+		{
+		}
+		break;
+		case 3:
+		{
+		}
+		break;
+		case 4:
+		{
+		}
+		case 5:
+		{
+			cout << "SAINDO DO SISTEMA." << endl;
+		}
+		break;
+		default:
+		{
+			cout << "OPÇÃO INVÁLIDA." << endl;
+			system("Pause");
+		}
+		}
+	}
+}
+
+
+void cadAluno()
+{
+	
+}
+void cadDisci(){}
+void cadDep(){}
+void cadUni(){}

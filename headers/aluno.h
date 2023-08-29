@@ -1,6 +1,6 @@
 #pragma once
 
-#include "pessoa.h"
+#include "../headers/pessoa.h"
 
 class Aluno : public Pessoa
 {
@@ -9,7 +9,7 @@ private:
 	Departamento* aDepAfiliado;
 	int RA;
 public:
-	Aluno(int dia, int mes, int ano, std::string nome = "");
+	Aluno(int dia, int mes, int ano, std::string nome = "", int ra = -1);
 	Aluno();
 	~Aluno();
 

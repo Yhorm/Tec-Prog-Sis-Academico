@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
-#include "departamento.h"
+#include "../headers/departamento.h"
 
 
 using namespace std;

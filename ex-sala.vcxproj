@@ -71,7 +71,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>D:\Vscode-projetos\EX-EM-SALA\ex-sala\headers;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\Aluno\Desktop\Tec-Prog-Sis-Academico-master\headers;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -130,13 +130,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="aluno.h" />
-    <ClInclude Include="disciplina.h" />
-    <ClInclude Include="professor.h" />
-    <ClInclude Include="departamento.h" />
-    <ClInclude Include="universidade.h" />
-    <ClInclude Include="principal.h" />
-    <ClInclude Include="pessoa.h" />
+    <ClInclude Include="headers\aluno.h" />
+    <ClInclude Include="headers\departamento.h" />
+    <ClInclude Include="headers\disciplina.h" />
+    <ClInclude Include="headers\pessoa.h" />
+    <ClInclude Include="headers\principal.h" />
+    <ClInclude Include="headers\professor.h" />
+    <ClInclude Include="headers\universidade.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="disciplina.cpp" />

@@ -1,16 +1,19 @@
-#include "aluno.h"
+#include "../headers/aluno.h"
 
 //CONSTRUTORAS E DESTRUTORA
-Aluno::Aluno(int dia, int mes, int ano, std::string nome) :
+Aluno::Aluno(int dia, int mes, int ano, std::string nome, int ra) :
 	Pessoa(dia, mes, ano, nome)
 {
 	aUniMatriculado = NULL;
 	aDepAfiliado = NULL;
-	RA = -1;
+	setRA(ra);
 }
 
 Aluno::Aluno()
 {
+	aUniMatriculado = NULL;
+	aDepAfiliado = NULL;
+	setRA(-1);
 }
 
 Aluno::~Aluno()

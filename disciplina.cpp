@@ -1,5 +1,5 @@
 #include "disciplina.h"
-#include "Aluno.h"
+#include "../headers/Aluno.h"
 
 Disciplina::Disciplina(std::string nome, std::string area, int id, int nAlunos)
 {
