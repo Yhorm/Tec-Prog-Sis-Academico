@@ -1,8 +1,9 @@
 #pragma once
 #include <iostream>
 #include <vector>
-#include "../headers/departamento.h"
-
+#include "../Tec-Prog-Sis-Academico-master/headers/departamento.h"
+#include "../Tec-Prog-Sis-Academico-master/headers/elalunos.h"
+#include "../headers/listaalunos.h"
 
 using namespace std;
 
@@ -15,19 +16,20 @@ private:
 	string areaConhecimento;
 
 	int id;
-	int numAlunos;
-	int countAlunos;
 
-	vector <Aluno*> alunos;
-
+	listaAlunos objlAlunos;
 	Departamento* depAssociado;
 
 public:
 
-	Disciplina(std::string nome, std::string area, int id, int nAlunos);
+	elAluno* alunoPrim;
+	elAluno* alunoAtual;
+
+
+	Disciplina(std::string nome, std::string area, int id );
 	Disciplina();
 	~Disciplina();
-	void Inicializa(std::string nome, std::string area, int id, int nAlunos);
+	void Inicializa(std::string nome, std::string area, int id );
 
 	void setName(std::string nome);
 	string getName();
@@ -43,6 +45,6 @@ public:
 
 	void setAluno(Aluno* aluno);
 	void listAlunos();
-
+	void listAlunos2();
 	void resizeAlunos(int nAlunos);
 };

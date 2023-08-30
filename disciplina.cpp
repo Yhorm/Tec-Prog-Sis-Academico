@@ -1,33 +1,47 @@
-#include "disciplina.h"
-#include "../headers/Aluno.h"
+#include "../Tec-Prog-Sis-Academico-master/headers/disciplina.h"
+#include "../Tec-Prog-Sis-Academico-master/headers/Aluno.h"
 
-Disciplina::Disciplina(std::string nome, std::string area, int id, int nAlunos)
+Disciplina::Disciplina(std::string nome, std::string area, int id)
 {
-	Inicializa(nome, area, id, nAlunos);
+	Inicializa(nome, area, id);
 }
 
 Disciplina::Disciplina()
 {
-	Inicializa("", "", -1, 45);
+	Inicializa("", "", -1);
 }
 
 Disciplina::~Disciplina()
 {
+
+	dNome = "";
+	areaConhecimento = "";
+	id = -1;
+
+	elAluno* aux1 = NULL;
+	elAluno* aux2 = NULL;
+
+	aux1 = alunoPrim;
+
+	while (aux1 != NULL)
+	{
+		aux2 = aux1->alunoProx;
+		delete aux1;
+		aux1 = aux2;
+	}
+
+	depAssociado = NULL;
+	alunoAtual = NULL;
+	alunoPrim = NULL;
 }
 
-void Disciplina::Inicializa(std::string nome, std::string area, int id, int nAlunos)
+void Disciplina::Inicializa(std::string nome, std::string area, int id)
 {
 	setName(nome);
 	setArea(area);
 	setId(id);
-	numAlunos = nAlunos;
-	countAlunos = 0;
-	alunos.resize(numAlunos);
-
-	for (int i = 0; i < alunos.size(); i++)
-	{
-		alunos[i] = NULL;
-	}
+	alunoAtual = NULL;
+	alunoPrim = NULL;
 }
 
 void Disciplina::setName(std::string nome)
@@ -73,23 +87,22 @@ Departamento* Disciplina::getDep()
 
 void Disciplina::setAluno(Aluno* aluno)
 {
-	if (countAlunos == alunos.size())
-	{
-		cout << "TURMA LOTADA." << endl << "STACK OVERFLOW" << endl;
-	}
-	alunos[countAlunos] = aluno;
-	countAlunos++;
+	objlAlunos.setAluno(aluno);
 }
+
 void Disciplina::listAlunos()
 {
-	for (int i = 0; i < countAlunos && countAlunos < alunos.size(); i++)
-	{
-		cout << "Aluno: " << alunos[i]->getName() << endl;
-	}
+	objlAlunos.listAlunos();
 }
+
+void Disciplina::listAlunos2()
+{
+	objlAlunos.listAlunos2();
+}
+
 
 void Disciplina::resizeAlunos(int nAlunos)
 {
-	numAlunos = nAlunos;
-	alunos.resize(numAlunos);
+	objlAlunos.resizeAlunos(nAlunos);
+	
 }

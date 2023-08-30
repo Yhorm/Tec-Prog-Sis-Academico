@@ -4,9 +4,9 @@
 #define _CRT_SECURE_NO_WARNINGS
 #endif
 
-#include "../headers/disciplina.h"
-#include "../headers/Aluno.h"
-#include "../headers/professor.h"
+#include "../Tec-Prog-Sis-Academico-master/headers/disciplina.h"
+#include "../Tec-Prog-Sis-Academico-master/headers/Aluno.h"
+#include "../Tec-Prog-Sis-Academico-master/headers/professor.h"
 #include <time.h>
 
 

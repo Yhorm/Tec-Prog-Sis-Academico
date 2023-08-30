@@ -1,4 +1,4 @@
-#include "../headers/aluno.h"
+#include "../Tec-Prog-Sis-Academico-master/headers/aluno.h"
 
 //CONSTRUTORAS E DESTRUTORA
 Aluno::Aluno(int dia, int mes, int ano, std::string nome, int ra) :

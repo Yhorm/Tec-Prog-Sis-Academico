@@ -1,4 +1,4 @@
-#include "../headers/principal.h"
+#include "../Tec-Prog-Sis-Academico-master/headers/principal.h"
 
 Principal::Principal()
 {
@@ -301,10 +301,7 @@ void Principal::menuExec()
 }
 
 
-void cadAluno()
-{
-	
-}
-void cadDisci(){}
-void cadDep(){}
-void cadUni(){}
+void Principal::cadAluno(){}
+void Principal::cadDisci(){}
+void Principal::cadDep(){}
+void Principal::cadUni(){}

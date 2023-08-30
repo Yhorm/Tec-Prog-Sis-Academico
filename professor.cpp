@@ -1,4 +1,4 @@
-#include "../headers/professor.h"
+#include "../Tec-Prog-Sis-Academico-master/headers/professor.h"
 
 //CONSTRUTORAS E DESTRUTORAS:
 Professor::Professor(int dia, int mes, int ano, std::string nome) :

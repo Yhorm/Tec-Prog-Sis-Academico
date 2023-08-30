@@ -1,4 +1,4 @@
-#include "../headers/pessoa.h"
+#include "../Tec-Prog-Sis-Academico-master/headers/pessoa.h"
 //CONSTRUTORAS E DESTRUTORA
 Pessoa::Pessoa(int dia, int mes, int ano, std::string nome)
 {

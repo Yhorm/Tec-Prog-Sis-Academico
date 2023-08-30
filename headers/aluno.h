@@ -9,6 +9,10 @@ private:
 	Departamento* aDepAfiliado;
 	int RA;
 public:
+
+	Aluno* alunoProx;
+	Aluno* alunoAnt;
+
 	Aluno(int dia, int mes, int ano, std::string nome = "", int ra = -1);
 	Aluno();
 	~Aluno();

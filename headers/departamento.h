@@ -4,6 +4,8 @@
 
 using namespace std;
 
+class listaDisciplina;
+class elDisciplina;
 class Universidade;
 class Disciplina;
 
@@ -13,12 +15,13 @@ class Departamento
 		string depName;
 		int id;
 		Universidade* uniPoint;
-		
-		std::list<Disciplina*> disciplinas;
 
-
+		listaDisciplina* objListDisci;
 	public:
 		
+		elDisciplina* disAtual;
+		elDisciplina* disPrim;
+
 		Departamento(std::string dName = "");
 		~Departamento();
 		
@@ -32,5 +35,6 @@ class Departamento
 
 		void setDisciplina(Disciplina* dis);
 		void listDisciplina();
+		void listDisciplina2();
 
 };

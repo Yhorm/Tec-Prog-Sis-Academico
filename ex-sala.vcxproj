@@ -133,6 +133,10 @@
     <ClInclude Include="headers\aluno.h" />
     <ClInclude Include="headers\departamento.h" />
     <ClInclude Include="headers\disciplina.h" />
+    <ClInclude Include="headers\elalunos.h" />
+    <ClInclude Include="headers\eldisciplina.h" />
+    <ClInclude Include="headers\listaalunos.h" />
+    <ClInclude Include="headers\listadisciplina.h" />
     <ClInclude Include="headers\pessoa.h" />
     <ClInclude Include="headers\principal.h" />
     <ClInclude Include="headers\professor.h" />
@@ -140,9 +144,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="disciplina.cpp" />
+    <ClCompile Include="listaalunos.cpp" />
+    <ClCompile Include="listadisciplina.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="departamento.cpp" />
     <ClCompile Include="aluno.cpp" />
+    <ClCompile Include="elalunos.cpp" />
+    <ClCompile Include="eldisciplina.cpp" />
     <ClCompile Include="professor.cpp" />
     <ClCompile Include="principal.cpp" />
     <ClCompile Include="universidade.cpp" />

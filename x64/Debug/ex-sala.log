@@ -2,9 +2,14 @@
   main.cpp
   departamento.cpp
   aluno.cpp
+  elalunos.cpp
   professor.cpp
   principal.cpp
   universidade.cpp
   pessoa.cpp
   Gerando Código...
-  ex-sala.vcxproj -> C:\Users\Aluno\Desktop\Tec-Prog-Sis-Academico-master\x64\Debug\ex-sala.exe
+principal.obj : error LNK2019: símbolo externo não resolvido, "public: void __cdecl Principal::cadAluno(void)" (?cadAluno@Principal@@QEAAXXZ), referenciado na função "public: void __cdecl Principal::menuCad(void)" (?menuCad@Principal@@QEAAXXZ)
+principal.obj : error LNK2019: símbolo externo não resolvido, "public: void __cdecl Principal::cadDisci(void)" (?cadDisci@Principal@@QEAAXXZ), referenciado na função "public: void __cdecl Principal::menuCad(void)" (?menuCad@Principal@@QEAAXXZ)
+principal.obj : error LNK2019: símbolo externo não resolvido, "public: void __cdecl Principal::cadDep(void)" (?cadDep@Principal@@QEAAXXZ), referenciado na função "public: void __cdecl Principal::menuCad(void)" (?menuCad@Principal@@QEAAXXZ)
+principal.obj : error LNK2019: símbolo externo não resolvido, "public: void __cdecl Principal::cadUni(void)" (?cadUni@Principal@@QEAAXXZ), referenciado na função "public: void __cdecl Principal::menuCad(void)" (?menuCad@Principal@@QEAAXXZ)
+D:\Vscode-projetos\Tec-Prog-Sis-Academico-master\x64\Debug\ex-sala.exe : fatal error LNK1120: 4 externo não resolvidos

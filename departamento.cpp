@@ -1,19 +1,25 @@
 #pragma once
 
-#include "../headers/departamento.h"
-#include "../headers/universidade.h"
-#include "../headers/disciplina.h"
+#include "../Tec-Prog-Sis-Academico-master/headers/departamento.h"
+#include "../Tec-Prog-Sis-Academico-master/headers/universidade.h"
+#include "../Tec-Prog-Sis-Academico-master/headers/disciplina.h"
+#include "../Tec-Prog-Sis-Academico-master/headers/listadisciplina.h"
+#include "headers/eldisciplina.h"
 
 //CONSTRUTORAS E DESTRUTORAS:
 Departamento::Departamento(std::string dName)
 {
 	Inicializa(dName);
-
+	objListDisci = new listaDisciplina(-1, " ");
 }
 
 
 Departamento::~Departamento()
 {
+	if (objListDisci)
+	{
+		delete objListDisci;
+	}
 }
 
 void Departamento::Inicializa(std::string dName)
@@ -24,6 +30,7 @@ void Departamento::Inicializa(std::string dName)
 void Departamento::setDepName(std::string dName)
 {
 	depName = dName;
+	objListDisci->setNome(dName);
 }
 
 string Departamento::getDepName()
@@ -48,21 +55,17 @@ void Departamento::setUni(Universidade* uni)
 
 void Departamento::setDisciplina( Disciplina* dis)
 {
-	if (disciplinas.empty())
-	{
-		disciplinas.push_front(dis);
-	}
-	else
-	{
-		disciplinas.push_back(dis);
-	}
+	objListDisci->setDisciplina(dis);
 }
 
 void Departamento::listDisciplina()
 {
-	for (const auto &i: disciplinas)
-	{
-		cout << "Disciplina: " << i->getName() << "do departamento" << depName <<"." << endl;
-	}
+
+	objListDisci->listDisciplina();
+}
+void Departamento::listDisciplina2()
+{
+
+	objListDisci->listDisciplina2();
 }
 
