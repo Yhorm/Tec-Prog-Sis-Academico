@@ -1,22 +1,13 @@
-#include "../Tec-Prog-Sis-Academico-master/headers/elalunos.h"
-
-elAluno::elAluno(int n)
-{
-	countAlunos = 0;
-	numAlunos = n;
-	aluno = NULL;
-	alunoAnt = NULL;
-	alunoProx = NULL;
-}
+#include "headers/elalunos.h"
+#include "headers/aluno.h"
 
 elAluno::elAluno()
 {
-	numAlunos = -1;
-	countAlunos = -1;
 	aluno = NULL;
 	alunoAnt = NULL;
 	alunoProx = NULL;
 }
+
 elAluno::~elAluno()
 {
 	aluno = NULL;
@@ -28,6 +19,24 @@ elAluno::~elAluno()
 void elAluno::setAluno(Aluno* a)
 {
 	aluno = a;
+}
+
+void elAluno::setProx(elAluno* prox)
+{
+	alunoProx = prox;
+}
+void elAluno::setAnt(elAluno* ant)
+{
+	alunoAnt = ant;
+}
+
+elAluno* elAluno::getProx()
+{
+	return alunoProx;
+}
+elAluno* elAluno::getAnt()
+{
+	return alunoAnt;
 }
 
 Aluno* elAluno::getAluno()

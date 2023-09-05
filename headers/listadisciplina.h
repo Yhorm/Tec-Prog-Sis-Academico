@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../headers/eldisciplina.h"
-#include "../headers/disciplina.h"
+#include "eldisciplina.h"
+#include "disciplina.h"
 
 using namespace std;
 
@@ -21,6 +21,9 @@ public:
 
 	void setNome(std::string n);
 	void setDisciplina(Disciplina* dis);
+
+	void setAtual(elDisciplina* atual);
+	void setPrim(elDisciplina* prim);
 
 	void listDisciplina();
 	void listDisciplina2();

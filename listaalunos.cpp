@@ -10,15 +10,6 @@ listaAlunos::listaAlunos(int n, std::string no)
 	alunoAtual = NULL;
 }
 
-listaAlunos::listaAlunos()
-{
-	countAlunos = -1;
-	numAlunos = -1;
-	nome = "";
-	alunoPrim = NULL;
-	alunoAtual = NULL;
-}
-
 listaAlunos::~listaAlunos()
 {
 	countAlunos = -1;
@@ -36,6 +27,7 @@ listaAlunos::~listaAlunos()
 		delete aux1;
 		aux1 = aux2;
 	}
+
 
 	alunoPrim = NULL;
 	alunoAtual = NULL;
@@ -56,8 +48,8 @@ void listaAlunos::setAluno(Aluno* aluno)
 		}
 		else
 		{
-			alunoAtual->alunoProx = aux;
-			aux->alunoAnt = alunoAtual;
+			alunoAtual->setProx(aux);
+			aux->setAnt(alunoAtual);
 			alunoAtual = aux;
 		}
 		countAlunos++;
@@ -73,10 +65,10 @@ void listaAlunos::listAlunos()
 
 	elAluno* aux = alunoPrim;
 
-	while (aux->alunoProx != NULL)
+	while (aux->getProx() != NULL)
 	{
 		cout << "O(a) aluno(a) " << aux->getName() << " estuda a disciplina: " << nome << endl;
-		aux = aux->alunoProx;
+		aux = aux->getProx();
 	}
 }
 

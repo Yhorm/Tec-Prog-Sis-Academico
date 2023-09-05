@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-#include "../headers/universidade.h"
+#include "universidade.h"
 #include <locale.h>
 #include <list>
 #include <vector>
@@ -20,11 +20,10 @@ protected:
 	Departamento* uniDepAfil;
 
 public:
-	Pessoa(int dia, int mes, int ano, std::string nome = "");
-	Pessoa();
+	Pessoa(int dia = -1, int mes = -1, int ano = -1, std::string nome = "");
 	~Pessoa();
 	void Inicializa(int dia, int mes, int ano, std::string nome = "");
-
+	void setName(string nome);
 	void calcAge(int dia, int mes, int ano);
 	void printAge();
 	int getAge();

@@ -4,11 +4,12 @@
 #define _CRT_SECURE_NO_WARNINGS
 #endif
 
-#include "../Tec-Prog-Sis-Academico-master/headers/disciplina.h"
-#include "../Tec-Prog-Sis-Academico-master/headers/Aluno.h"
-#include "../Tec-Prog-Sis-Academico-master/headers/professor.h"
-#include <time.h>
-
+#include "pessoa.h"
+#include "../headers/professor.h"
+#include "../headers/listaalunos.h"
+#include "../headers/listaDepartamento.h"
+#include "../headers/listadisciplina.h"
+#include "../headers/listUniversidade.h"
 
 
 class Principal 
@@ -32,6 +33,11 @@ class Principal
 		Disciplina Introd_Alg_2007;
 		Disciplina Comp2_2007;
 		Disciplina Metodos2_2007;
+
+		listaAlunos listAlunos;
+		listaDepartamento listDeps;
+		listaDisciplina listDis;
+		listUniversidade listUni;
 
 		int diaAt = 0;
 		int mesAt = 0;

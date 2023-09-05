@@ -1,4 +1,4 @@
-#include "../Tec-Prog-Sis-Academico-master/headers/professor.h"
+#include "headers/professor.h"
 
 //CONSTRUTORAS E DESTRUTORAS:
 Professor::Professor(int dia, int mes, int ano, std::string nome) :
@@ -8,11 +8,7 @@ Professor::Professor(int dia, int mes, int ano, std::string nome) :
 	profDepAfil = NULL;
 }
 
-Professor::Professor()
-{
-	profUniAfil = NULL;
-	profDepAfil = NULL;
-}
+
 
 Professor::~Professor()
 {
@@ -25,7 +21,7 @@ void Professor::setUniAfil(Universidade* pu)
 	profUniAfil = pu;
 }
 
-//MOSTRA A UNIVERSIDADE EM QUE O PROF TRABALHA MAS NÃO RETORNA.
+//MOSTRA A UNIVERSIDADE EM QUE O PROF TRABALHA MAS Nï¿½O RETORNA.
 void Professor::showUniAfil()
 {
 	cout << pName << " trabalha na universidade: " << profUniAfil->getUniName() << "." << endl;

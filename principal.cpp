@@ -1,19 +1,17 @@
-#include "../Tec-Prog-Sis-Academico-master/headers/principal.h"
+#include "headers/principal.h"
+#include "Windows.h"
 
 Principal::Principal()
 {
 	//Estrutura para utilizar o time.h: 
-	struct tm* local;
-	time_t segundos;
-	time(&segundos);
-	local = localtime(&segundos);
+	SYSTEMTIME st;
+	GetSystemTime(&st);
 
-	diaAt = local->tm_mday;
-	mesAt = local->tm_mon + 1;
-	anoAt = local->tm_year + 1900;
+	diaAt = st.wDay;
+	mesAt = st.wMonth;
+	anoAt = st.wYear;
 
 	Inicializa();
-
 }
 
 
@@ -24,23 +22,19 @@ Principal::~Principal()
 
 void Principal::Executar()
 {
-	calcIdade();
 	showDepAfil();
-	felipe.showRA();
-	jorge.showRA();
 	listDiscDeps();
 	listAlunosDisc();
-
 }
 
 
 void Principal::Inicializa()
 {
 	InicializaAlunos();	
-	InicializaProfessores();
 	InicializaUniversidades();
 	InicializaDepartamentos();
 	InicializaDisciplina();
+	InicializaProfessores();
 
 }
 
@@ -49,20 +43,16 @@ void Principal::InicializaUniversidades()
 {
 	//Inicializa as universidades:
 	UTFPR.Inicializa("UTFPR");
+	listUni.setUni(&UTFPR);
 	cambridge.Inicializa("Cambridge");
+	listUni.setUni(&cambridge);
 	princeton.Inicializa("Princeton");
-
-	//Seta os departamentos as Universidades:
-	UTFPR.setDep(&DAINF, 0);
-	UTFPR.setDep(&DAELN, 1);
-	UTFPR.setDep(&DAMAT, 2);
-	cambridge.setDep(&mathCambridge, 0);
-	princeton.setDep(&physicsPrinceton, 0);
+	listUni.setUni(&princeton);
 
 }
 void Principal::InicializaProfessores()
 {
-	simao.Inicializa(3, 10, 1976, "Jean Simão");
+	simao.Inicializa(3, 10, 1976, "Jean Simï¿½o");
 	newton.Inicializa(4, 1, 1643, "Isaac Newton");
 	einstein.Inicializa(14, 3, 1879, "Albert Einstein");
 
@@ -84,38 +74,42 @@ void Principal::InicializaDepartamentos()
 	physicsPrinceton.Inicializa("Fisica na Universidade de Princeton");
 
 	//Filia os departamentos as universidades:
-	DAINF.setUni(&UTFPR);
-	DAELN.setUni(&UTFPR);
-	DAMAT.setUni(&UTFPR);
-	physicsPrinceton.setUni(&princeton);
-	mathCambridge.setUni(&cambridge);
+	listDeps.setDep(&DAINF);
+	listDeps.setDep(&DAELN);
+	listDeps.setDep(&DAMAT);
+	listDeps.setDep(&mathCambridge);
+	listDeps.setDep(&physicsPrinceton);
+
+	UTFPR.setDep(&DAINF);
+	UTFPR.setDep(&DAELN);
+	UTFPR.setDep(&DAMAT);
+
+	princeton.setDep(&physicsPrinceton);
+
+	cambridge.setDep(&mathCambridge);
 }
 void Principal::InicializaAlunos()
 {
-	felipe.Inicializa(9, 8, 2002, "Felipe Mossato");
-	jorge.Inicializa(10, 4, 2000, "Jorge Jorge");
+	felipe.setName("Felipe Mossato");
+	jorge.setName("Jorge Jorge");
 
-	felipe.setUniAfil(&UTFPR);
-	jorge.setUniAfil(&UTFPR);
-
-	felipe.setDepAfil(&DAINF);
-	jorge.setDepAfil(&DAMAT);
-
-	felipe.setRA(2557959);
-	jorge.setRA(2541343);
 }
 void Principal::InicializaDisciplina()
 {
 	Comp1_2006.setName("Computacao 1 2006");
 	Introd_Alg_2007.setName("Intro de Algde Programacao 2007");
 	Comp2_2007.setName("Computao II");
-	Metodos2_2007.setName("Métodos II");
+	Metodos2_2007.setName("Mï¿½todos II");
 
+	listDis.setDisciplina(&Comp1_2006);
+	listDis.setDisciplina(&Introd_Alg_2007);
+	listDis.setDisciplina(&Comp2_2007);
+	listDis.setDisciplina(&Metodos2_2007);
 
-	DAELN.setDisciplina(&Comp1_2006);
-	DAELN.setDisciplina(&Introd_Alg_2007);
-	DAELN.setDisciplina(&Comp2_2007);
-	DAELN.setDisciplina(&Metodos2_2007);
+	Comp1_2006.setDep(&DAELN);
+	Introd_Alg_2007.setDep(&DAELN);
+	Comp2_2007.setDep(&DAELN);
+	Metodos2_2007.setDep(&DAELN);
 
 	Metodos2_2007.setAluno(&felipe);
 	Metodos2_2007.setAluno(&jorge);
@@ -123,32 +117,16 @@ void Principal::InicializaDisciplina()
 
 void Principal::calcIdade()
 {
-	felipe.calcAge(diaAt, mesAt, anoAt);
-	jorge.calcAge(diaAt, mesAt, anoAt);
 	simao.calcAge(diaAt, mesAt, anoAt);
 	newton.calcAge(diaAt, mesAt, anoAt);
 	einstein.calcAge(diaAt, mesAt, anoAt);
 }
 void Principal::showDepAfil()
 {
-	printf("\n");
-	felipe.showDepAfil();
-	printf("\n");
-	jorge.showDepAfil();
-	printf("\n");
-	simao.showDepAfil();
-	printf("\n");
-	newton.showDepAfil();
-	printf("\n");
-	einstein.showDepAfil();
-	printf("\n");
+	
 }
 void Principal::showUniAfil()
 {
-	printf("\n");
-	felipe.showUniAfil();
-	printf("\n");
-	jorge.showDepAfil();
 	printf("\n");
 	simao.showUniAfil();
 	printf("\n");
@@ -178,7 +156,7 @@ void Principal::Menu()
 	while (opt != -3)
 	{
 		system("cls");
-		cout << "-------- SELECIONE UMA DAS OPÇÕES ABAIXO --------" << endl;
+		cout << "-------- SELECIONE UMA DAS OPï¿½ï¿½ES ABAIXO --------" << endl;
 		cout << "-------- 1 - CADASTRAR --------" << endl;
 		cout << "-------- 2 - EXECUTAR --------" << endl;
 		cout << "-------- 3 - SAIR  --------" << endl;
@@ -200,7 +178,7 @@ void Principal::Menu()
 		}
 			  break;
 		default: {
-			cout << "OPÇÃO INVÁLIDA. " << endl;
+			cout << "OPï¿½ï¿½O INVï¿½LIDA. " << endl;
 			system("Pause");
 		}
 		}
@@ -215,7 +193,7 @@ void Principal::menuCad()
 	while (opt != 5)
 	{
 		system("cls");
-		cout << "-------- SELECIONE UMA DAS OPÇÕES ABAIXO --------" << endl;
+		cout << "-------- SELECIONE UMA DAS OPï¿½ï¿½ES ABAIXO --------" << endl;
 		cout << "-------- 1 - CADASTRAR UM ALUNO --------" << endl;
 		cout << "-------- 2 - CADASTRAR UMA UNIVERSIDADE --------" << endl;
 		cout << "-------- 3 - CADASTRAR UM DEPARTAMENTO --------" << endl;
@@ -250,7 +228,7 @@ void Principal::menuCad()
 			break;
 			default: 
 			{
-				cout << "OPÇÃO INVÁLIDA." << endl;
+				cout << "OPï¿½ï¿½O INVï¿½LIDA." << endl;
 				system("Pause");
 			}
 		}
@@ -262,7 +240,7 @@ void Principal::menuExec()
 	while(opt != 5)
 	{
 		system("cls");
-		cout << "-------- SELECIONE UMA DAS OPÇÕES ABAIXO --------" << endl;
+		cout << "-------- SELECIONE UMA DAS OPï¿½ï¿½ES ABAIXO --------" << endl;
 		cout << "-------- 1 - LISTAR ALUNOS --------" << endl;
 		cout << "-------- 2 - LISTAR AS UNIVERSIDADE --------" << endl;
 		cout << "-------- 3 - LISTAR OS DEPARTAMENTO --------" << endl;
@@ -293,7 +271,7 @@ void Principal::menuExec()
 		break;
 		default:
 		{
-			cout << "OPÇÃO INVÁLIDA." << endl;
+			cout << "OPï¿½ï¿½O INVï¿½LIDA." << endl;
 			system("Pause");
 		}
 		}

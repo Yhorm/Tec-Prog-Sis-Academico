@@ -17,10 +17,9 @@ class Departamento
 		Universidade* uniPoint;
 
 		listaDisciplina* objListDisci;
+
 	public:
 		
-		elDisciplina* disAtual;
-		elDisciplina* disPrim;
 
 		Departamento(std::string dName = "");
 		~Departamento();

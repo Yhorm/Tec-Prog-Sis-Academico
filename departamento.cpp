@@ -1,9 +1,9 @@
 #pragma once
 
-#include "../Tec-Prog-Sis-Academico-master/headers/departamento.h"
-#include "../Tec-Prog-Sis-Academico-master/headers/universidade.h"
-#include "../Tec-Prog-Sis-Academico-master/headers/disciplina.h"
-#include "../Tec-Prog-Sis-Academico-master/headers/listadisciplina.h"
+#include "headers/departamento.h"
+#include "headers/universidade.h"
+#include "headers/disciplina.h"
+#include "headers/listadisciplina.h"
 #include "headers/eldisciplina.h"
 
 //CONSTRUTORAS E DESTRUTORAS:
@@ -20,11 +20,13 @@ Departamento::~Departamento()
 	{
 		delete objListDisci;
 	}
+
 }
 
 void Departamento::Inicializa(std::string dName)
 {
 	setDepName(dName);
+
 }
 
 void Departamento::setDepName(std::string dName)

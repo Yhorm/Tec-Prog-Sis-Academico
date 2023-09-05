@@ -30,7 +30,7 @@ listaDisciplina::~listaDisciplina()
 
 	while (aux1 != NULL)
 	{
-		aux2 = aux1->disProx;
+		aux2 = aux1->getProx();
 		delete aux1;
 		aux1 = aux2;
 	}
@@ -54,14 +54,14 @@ void listaDisciplina::setDisciplina(Disciplina* dis)
 
 		if (disPrim == NULL)
 		{
-			disPrim = aux;
-			disAtual = aux;
+			setPrim(aux);
+			setAtual(aux);
 		}
 		else
 		{
-			disAtual->disProx = aux;
-			aux->disAnt = disAtual;
-			disAtual = aux;
+			disAtual->setProx(aux);
+			aux->setAnt(disAtual);
+			setAtual(aux);
 		}
 		countDisciplinas++;
 	}
@@ -72,7 +72,14 @@ void listaDisciplina::setDisciplina(Disciplina* dis)
 
 }
 
-
+void listaDisciplina::setAtual(elDisciplina* atual)
+{
+	disAtual = atual;
+}
+void listaDisciplina::setPrim(elDisciplina* prim)
+{
+	disPrim = prim;
+}
 void listaDisciplina::listDisciplina() 
 {
 	elDisciplina* aux = disPrim;
@@ -80,7 +87,7 @@ void listaDisciplina::listDisciplina()
 	while (aux != NULL)
 	{
 		cout << "Disciplina: " << aux->getDisName() << " do departamento " << nome << "." << endl;
-		aux = aux->disProx;
+		aux = aux->getProx();
 	}
 }
 void listaDisciplina::listDisciplina2() 
@@ -90,6 +97,6 @@ void listaDisciplina::listDisciplina2()
 	while (aux != NULL)
 	{
 		cout << "Disciplina: " << aux->getDisName() << " do departamento " << nome << "." << endl;
-		aux = aux->disAnt;
+		aux = aux->getAnt();
 	}
 }

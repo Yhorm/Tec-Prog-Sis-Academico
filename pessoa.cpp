@@ -1,13 +1,8 @@
-#include "../Tec-Prog-Sis-Academico-master/headers/pessoa.h"
+#include "headers/pessoa.h"
 //CONSTRUTORAS E DESTRUTORA
 Pessoa::Pessoa(int dia, int mes, int ano, std::string nome)
 {
 	Inicializa(dia, mes, ano, nome);
-}
-
-Pessoa::Pessoa() 
-{
-	Inicializa(-1, -1, -1);
 }
 
 
@@ -20,6 +15,11 @@ void Pessoa::Inicializa(int dia, int mes, int ano, std::string nome)
 	bYear = ano;
 	pName = nome;
 	age = -1;
+}
+
+void Pessoa::setName(string nome)
+{
+	pName = nome;
 }
 
 //CALCULA A IDADE
@@ -39,7 +39,7 @@ void Pessoa::calcAge(int dia, int mes, int ano)
 		}
 	}
 }
-//MOSTRA A IDADE, MAS NÃO RETORNA
+//MOSTRA A IDADE, MAS Nï¿½O RETORNA
 void Pessoa::printAge()
 {
 	std::cout << "a idade de " << pName << " ";
@@ -47,14 +47,14 @@ void Pessoa::printAge()
 	std::cout << "\n";
 }
 
-//MOSTRA A DATA DE NASCIMENTO, MAS NÃO A RETORNA
+//MOSTRA A DATA DE NASCIMENTO, MAS Nï¿½O A RETORNA
 void Pessoa::printBirthdate()
 {
 	std::cout << "A data de nascimento de " << pName << " ";
 	printf("eh: %d/%d/%d\n", bDay, bMonth, bYear);
 	std::cout << "\n";
 }
-//MOSTRA O NOME, MAS NÃO O RETORNA
+//MOSTRA O NOME, MAS Nï¿½O O RETORNA
 void Pessoa::printName()
 {
 	std::cout << "O nome da pessoa eh: " << pName << "\n";

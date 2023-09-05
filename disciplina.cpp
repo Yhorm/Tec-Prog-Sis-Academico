@@ -1,47 +1,26 @@
-#include "../Tec-Prog-Sis-Academico-master/headers/disciplina.h"
-#include "../Tec-Prog-Sis-Academico-master/headers/Aluno.h"
+#include "headers/disciplina.h"
 
 Disciplina::Disciplina(std::string nome, std::string area, int id)
 {
 	Inicializa(nome, area, id);
 }
 
-Disciplina::Disciplina()
-{
-	Inicializa("", "", -1);
-}
-
 Disciplina::~Disciplina()
 {
-
 	dNome = "";
 	areaConhecimento = "";
 	id = -1;
-
-	elAluno* aux1 = NULL;
-	elAluno* aux2 = NULL;
-
-	aux1 = alunoPrim;
-
-	while (aux1 != NULL)
-	{
-		aux2 = aux1->alunoProx;
-		delete aux1;
-		aux1 = aux2;
-	}
-
 	depAssociado = NULL;
-	alunoAtual = NULL;
-	alunoPrim = NULL;
+	dProx = NULL;
+	dAnt = NULL;
 }
 
 void Disciplina::Inicializa(std::string nome, std::string area, int id)
 {
 	setName(nome);
-	setArea(area);
 	setId(id);
-	alunoAtual = NULL;
-	alunoPrim = NULL;
+	dProx = NULL;
+	dAnt = NULL;
 }
 
 void Disciplina::setName(std::string nome)
@@ -53,15 +32,23 @@ string Disciplina::getName()
 {
 	return dNome;
 }
-
-void Disciplina::setArea(std::string area)
+void Disciplina::setProx(Disciplina* prox)
 {
-	areaConhecimento = area;
+	dProx = prox;
+}
+void Disciplina::setAnt(Disciplina* ant)
+{
+	dAnt = ant;
 }
 
-string Disciplina::getArea()
+Disciplina* Disciplina::getProx()
 {
-	return areaConhecimento;
+	return dProx;
+}
+
+Disciplina* Disciplina::getAnt()
+{
+	return dAnt;
 }
 
 void Disciplina::setId(int id)

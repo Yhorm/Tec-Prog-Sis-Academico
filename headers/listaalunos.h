@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../headers/elalunos.h"
-#include "../headers/aluno.h"
+#include "elalunos.h"
+#include "aluno.h"
 
 using namespace std;
 
@@ -15,8 +15,7 @@ private:
 	elAluno* alunoPrim;
 	elAluno* alunoAtual;
 public:
-	listaAlunos(int n, std::string no);
-	listaAlunos();
+	listaAlunos(int n = -1, std::string no = "");
 	~listaAlunos();
 
 	void setAluno(Aluno* a);

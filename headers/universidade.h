@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 
-#include "../headers/departamento.h"
+#include "../headers/listaDepartamento.h"
 
 #define DEP_QTD_MAX 50
 
@@ -12,19 +12,18 @@ class Universidade
 {
 private:
 	string uName;
-
-	Departamento* depAfil[DEP_QTD_MAX];
+	listaDepartamento objLisDep;
 
 public:
-	Universidade(std::string nome);
-	Universidade();
+	Universidade(std::string nome = "");
+	
 	~Universidade();
 
 	void Inicializa(std::string nome = "");
 	void setName(std::string nome = "");
 	string getUniName();
-	void printUniName();
 
-	void setDep(Departamento* dep, int ctd);
-	void printDptos();
+	void setDep(Departamento* dep);
+	void printDptos1();
+	void printDptos2();
 };

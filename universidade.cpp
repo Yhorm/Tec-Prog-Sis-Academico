@@ -1,27 +1,13 @@
 #include <iostream>
-#include "../Tec-Prog-Sis-Academico-master/headers/universidade.h"
+#include "headers/universidade.h"
 
 using namespace std;
 
 //CONSTRUTORAS E DESTRUTORAS:
-Universidade::Universidade(std::string nome)
+Universidade::Universidade(std::string nome) :
+	objLisDep(-1, "")
 {
 	Inicializa(nome);
-	for (int i = 0; i < DEP_QTD_MAX; i++)
-	{
-		depAfil[i] = NULL;
-	}
-
-}
-
-Universidade::Universidade()
-{
-	Inicializa("");
-	for (int i = 0; i < DEP_QTD_MAX; i++)
-	{
-		depAfil[i] = NULL;
-	}
-
 }
 
 Universidade::~Universidade()
@@ -30,10 +16,6 @@ Universidade::~Universidade()
 
 void Universidade::Inicializa(std:: string nome)
 {
-	for (int i = 0; i < DEP_QTD_MAX; i++)
-	{
-		depAfil[i] = NULL;
-	}
 	setName(nome);
 }
 
@@ -41,30 +23,24 @@ void Universidade::Inicializa(std:: string nome)
 void Universidade::setName(std::string nome)
 {
 	uName = nome;
+	objLisDep.setName(nome);
 }
 //RETORNA O NOME
 string Universidade::getUniName()
 {
 	return uName;
 }
-//MOSTRA O NOME, MAS NÃO O RETORNA.
-void Universidade::printUniName()
-{
-	cout << "O nome da universidade eh: " << uName << endl;
-}
 //SETA O DEPARTAMENTO
-void Universidade::setDep(Departamento* dep, int ctd)
+void Universidade::setDep(Departamento* dep)
 {
-	depAfil[ctd] = dep;
+	objLisDep.setDep(dep);
 }
 //MOSTRA TODOS OS DEPARTAMENTOS:
-void Universidade::printDptos()
+void Universidade::printDptos1()
 {
-	for (int i = 0; i < DEP_QTD_MAX; i++)
-	{
-		if (depAfil[i] != NULL)
-		{
-			cout << i << " - " << depAfil[i]->getDepName() << endl;
-		}
-	}
+	objLisDep.listDep1();
+}
+void Universidade::printDptos2()
+{
+	objLisDep.listDep2();
 }

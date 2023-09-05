@@ -1,13 +1,14 @@
 #pragma once
+
 #include <iostream>
 #include <vector>
-#include "../Tec-Prog-Sis-Academico-master/headers/departamento.h"
-#include "../Tec-Prog-Sis-Academico-master/headers/elalunos.h"
-#include "../headers/listaalunos.h"
+
+#include "departamento.h"
+#include "elalunos.h"
+#include "listaalunos.h"
+#include "aluno.h"
 
 using namespace std;
-
-class Aluno;
 
 class Disciplina
 {
@@ -20,22 +21,23 @@ private:
 	listaAlunos objlAlunos;
 	Departamento* depAssociado;
 
+	Disciplina* dProx;
+	Disciplina* dAnt;
+
 public:
 
-	elAluno* alunoPrim;
-	elAluno* alunoAtual;
-
-
-	Disciplina(std::string nome, std::string area, int id );
-	Disciplina();
+	Disciplina(std::string nome = "", std::string area = "", int id = -1);
 	~Disciplina();
-	void Inicializa(std::string nome, std::string area, int id );
+	void Inicializa(std::string nome, std::string area, int id);
 
 	void setName(std::string nome);
 	string getName();
 
-	void setArea(std::string area);
-	string getArea();
+	void setProx(Disciplina* prox);
+	void setAnt(Disciplina* ant);
+
+	Disciplina* getProx();
+	Disciplina* getAnt();
 
 	void setId(int id);
 	int getId();
