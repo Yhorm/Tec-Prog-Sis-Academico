@@ -17,15 +17,16 @@ private:
 	elUniversidade* uPrim;
 public:
 
-	listUniversidade(int n = -1, string no = "");
+	listUniversidade(int n = 100, string no = "");
 	~listUniversidade();
 
 	void setUni(Universidade* uni);
 	
 	void setName(string no = "");
 
-	void getUnis1();
-	void getUnis2();
+	void listUnis1();
+	void listUnis2();
 
+	Universidade* localizar(string n = "");
 };
 

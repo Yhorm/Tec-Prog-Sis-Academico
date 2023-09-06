@@ -1,5 +1,5 @@
 #include "headers/elalunos.h"
-#include "headers/aluno.h"
+
 
 elAluno::elAluno()
 {

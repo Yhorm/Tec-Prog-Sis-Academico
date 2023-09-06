@@ -1,12 +1,10 @@
 #pragma once
 
 #include <iostream>
-#include <vector>
 
 #include "departamento.h"
-#include "elalunos.h"
 #include "listaalunos.h"
-#include "aluno.h"
+
 
 using namespace std;
 
@@ -26,9 +24,8 @@ private:
 
 public:
 
-	Disciplina(std::string nome = "", std::string area = "", int id = -1);
+	Disciplina(std::string nome = "", std::string area = "", int i = -1);
 	~Disciplina();
-	void Inicializa(std::string nome, std::string area, int id);
 
 	void setName(std::string nome);
 	string getName();

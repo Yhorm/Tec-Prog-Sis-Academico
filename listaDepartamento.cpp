@@ -20,6 +20,7 @@ listaDepartamento::~listaDepartamento()
 	elDepartamento* aux2;
 
 	aux1 = dPrim;
+	aux2 = aux1;
 
 	while (aux1 != NULL)
 	{
@@ -34,10 +35,16 @@ listaDepartamento::~listaDepartamento()
 
 void listaDepartamento::setDep(Departamento* dep)
 {
-	if (countDeps < numDeps && dep != NULL)
+	elDepartamento* aux; 
+	aux = new elDepartamento();
+	aux->setDep(dep);
+
+	aux->setAnt(NULL);
+	aux->setProx(NULL);
+
+	if (countDeps < numDeps && dep != NULL || numDeps == -1 && dep != NULL)
 	{
-		elDepartamento* aux = new elDepartamento();
-		aux->setDep(dep);
+
 		if (dPrim == NULL)
 		{
 			dPrim = aux;
@@ -65,7 +72,7 @@ void listaDepartamento::listDep1()
 {
 	elDepartamento* aux = dPrim;
 
-	while (aux->getProx() != NULL)
+	while (aux != NULL)
 	{
 		cout << "Departamento: " << aux->getName() << endl;
 		aux = aux->getProx();
@@ -75,9 +82,25 @@ void listaDepartamento::listDep2()
 {
 	elDepartamento* aux = dAtual;
 
-	while (aux->getAnt() != NULL)
+	while (aux != NULL)
 	{
 		cout << "Departamento: " << aux->getName() << endl;
 		aux = aux->getAnt();
 	}
+}
+
+Departamento* listaDepartamento::localizar(string n)
+{
+	elDepartamento* aux;
+	aux = dPrim;
+
+	while (aux != NULL)
+	{
+		if (0 == n.compare(aux->getName()))
+		{
+			return aux->getDep();
+		}
+		aux = aux->getProx();
+	}
+	return NULL;
 }

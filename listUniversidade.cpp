@@ -19,6 +19,7 @@ listUniversidade::~listUniversidade()
 	elUniversidade* aux2;
 
 	aux1 = uPrim;
+	aux2 = aux1;
 
 	while (aux1 != NULL)
 	{
@@ -33,9 +34,14 @@ listUniversidade::~listUniversidade()
 
 void listUniversidade::setUni(Universidade* uni)
 {
-	if (countUni < numUni && uni != NULL)
+	elUniversidade* aux; 
+	aux = new elUniversidade();
+	
+	aux->setAnt(NULL);
+	aux->setProx(NULL);
+	
+	if (countUni < numUni && uni != NULL || numUni == -1 && uni != NULL)
 	{
-		elUniversidade* aux = new elUniversidade();
 		aux->setUni(uni);
 		if (uPrim == NULL)
 		{
@@ -61,21 +67,36 @@ void listUniversidade::setName(string no)
 	nome = no;
 }
 
-void listUniversidade::getUnis1()
+void listUniversidade::listUnis1()
 {
 	elUniversidade* aux = uPrim;
-	while (aux->getProx() != NULL)
+	while (aux != NULL)
 	{
 		cout << "Universidade: " << aux->getName() << endl;
 		aux = aux->getProx();
 	}
 }
-void listUniversidade::getUnis2()
+void listUniversidade::listUnis2()
 {
 	elUniversidade* aux = uAtual;
-	while (aux->getAnt() != NULL)
+	while (aux != NULL)
 	{
 		cout << "Universidade: " << aux->getName() << endl;
 		aux = aux->getAnt();
 	}
+}
+
+Universidade* listUniversidade::localizar(string n)
+{
+	elUniversidade* aux;
+	aux = uPrim;
+	while (aux != NULL)
+	{
+		if (0 == n.compare(aux->getName()))
+		{
+			return aux->getUni();
+		}
+		aux = aux->getProx();
+	}
+	return NULL;
 }

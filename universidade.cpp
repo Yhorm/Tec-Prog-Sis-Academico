@@ -5,19 +5,16 @@ using namespace std;
 
 //CONSTRUTORAS E DESTRUTORAS:
 Universidade::Universidade(std::string nome) :
-	objLisDep(-1, "")
+	objLisDep(-1,"")
+
 {
-	Inicializa(nome);
+	uName = nome;
 }
 
 Universidade::~Universidade()
 {
 }
 
-void Universidade::Inicializa(std:: string nome)
-{
-	setName(nome);
-}
 
 //SETA O NOME
 void Universidade::setName(std::string nome)

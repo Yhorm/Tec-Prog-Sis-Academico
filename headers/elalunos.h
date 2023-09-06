@@ -2,17 +2,18 @@
 
 #include <iostream>
 
+#include "aluno.h"
 using namespace std;
 
-class Aluno;
 
 class elAluno
 {
 private:
 	Aluno* aluno;
-public:
 	elAluno* alunoProx;
 	elAluno* alunoAnt;
+public:
+
 	elAluno();
 	~elAluno();
 

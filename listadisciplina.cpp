@@ -9,15 +9,7 @@ listaDisciplina::listaDisciplina(int nDis, std::string n)
 	disAtual = NULL;
 	disPrim = NULL;
 }
-listaDisciplina::listaDisciplina() 
-{
-	countDisciplinas = -1;
-	numDisciplinas = -1;
-	setNome("");
 
-	disAtual = NULL;
-	disPrim = NULL;
-}
 listaDisciplina::~listaDisciplina() 
 {
 	countDisciplinas = -1;
@@ -25,7 +17,7 @@ listaDisciplina::~listaDisciplina()
 	nome = "";
 
 	elDisciplina* aux1 = disPrim;
-	elDisciplina* aux2 = NULL;
+	elDisciplina* aux2 = aux1;
 
 
 	while (aux1 != NULL)
@@ -46,12 +38,15 @@ void listaDisciplina::setNome(std::string n)
 }
 void listaDisciplina::setDisciplina(Disciplina* dis)
 {
+	elDisciplina* aux; 
+	aux = new elDisciplina();
+
+	aux->setDisciplina(dis);
+	aux->setProx(NULL);
+	aux->setAnt(NULL);
+
 	if (countDisciplinas < numDisciplinas && dis != NULL || numDisciplinas == -1 && dis != NULL)
 	{
-		elDisciplina* aux = new elDisciplina();
-
-		aux->setDisciplina(dis);
-
 		if (disPrim == NULL)
 		{
 			setPrim(aux);
@@ -67,7 +62,7 @@ void listaDisciplina::setDisciplina(Disciplina* dis)
 	}
 	else
 	{
-		cout << "Disciplina n sera adicionada devido a falta de espaço em: " << endl;
+		cout << "Disciplina n sera adicionada devido a falta de espaço no departamento: " << nome << endl;
 	}
 
 }
@@ -80,6 +75,7 @@ void listaDisciplina::setPrim(elDisciplina* prim)
 {
 	disPrim = prim;
 }
+
 void listaDisciplina::listDisciplina() 
 {
 	elDisciplina* aux = disPrim;
@@ -99,4 +95,21 @@ void listaDisciplina::listDisciplina2()
 		cout << "Disciplina: " << aux->getDisName() << " do departamento " << nome << "." << endl;
 		aux = aux->getAnt();
 	}
+}
+
+Disciplina* listaDisciplina::localiza(string n)
+{
+	elDisciplina* aux;
+	aux = disAtual;
+
+	while (aux != NULL)
+	{
+		if (0 == n.compare(aux->getDisName()))
+		{
+			return aux->getDisciplina();
+		}
+		aux = aux->getProx();
+	}
+
+	return NULL;
 }

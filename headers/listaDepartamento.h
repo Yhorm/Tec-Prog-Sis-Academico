@@ -16,12 +16,14 @@ private:
 	elDepartamento* dPrim;
 	elDepartamento* dAtual;
 public:
-	listaDepartamento(int n = -1, std::string no = "");
+	listaDepartamento(int n = 100, std::string no = "");
 	~listaDepartamento();
 
 	void setDep(Departamento* dep);
 	void setName(string no);
 	void listDep1();
 	void listDep2();
+
+	Departamento* localizar(string n);
 };
 

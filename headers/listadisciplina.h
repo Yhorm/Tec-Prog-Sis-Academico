@@ -15,8 +15,7 @@ private:
 	elDisciplina* disAtual;
 	elDisciplina* disPrim;
 public:
-	listaDisciplina(int nDis, std::string n);
-	listaDisciplina();
+	listaDisciplina(int nDis = 100, std::string n = "");
 	~listaDisciplina();
 
 	void setNome(std::string n);
@@ -27,5 +26,7 @@ public:
 
 	void listDisciplina();
 	void listDisciplina2();
+
+	Disciplina* localiza(string n);
 };
 

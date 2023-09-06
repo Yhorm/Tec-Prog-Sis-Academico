@@ -7,9 +7,8 @@
 #include "headers/eldisciplina.h"
 
 //CONSTRUTORAS E DESTRUTORAS:
-Departamento::Departamento(std::string dName)
+Departamento::Departamento()
 {
-	Inicializa(dName);
 	objListDisci = new listaDisciplina(-1, " ");
 }
 
@@ -23,11 +22,6 @@ Departamento::~Departamento()
 
 }
 
-void Departamento::Inicializa(std::string dName)
-{
-	setDepName(dName);
-
-}
 
 void Departamento::setDepName(std::string dName)
 {
@@ -40,11 +34,6 @@ string Departamento::getDepName()
 	return depName;
 }
 
-void Departamento::printDepName()
-{
-	cout << "Trabalha no departamento " << depName << endl;
-}
-
 int Departamento::getId()
 {
 	return id;
@@ -53,6 +42,11 @@ int Departamento::getId()
 void Departamento::setUni(Universidade* uni)
 {
 	uniPoint = uni;
+}
+
+Universidade* Departamento::getUni()
+{
+	return uniPoint;
 }
 
 void Departamento::setDisciplina( Disciplina* dis)

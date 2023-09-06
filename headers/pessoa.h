@@ -22,16 +22,17 @@ protected:
 public:
 	Pessoa(int dia = -1, int mes = -1, int ano = -1, std::string nome = "");
 	~Pessoa();
-	void Inicializa(int dia, int mes, int ano, std::string nome = "");
+	
 	void setName(string nome);
+	void setBirthdate(int dia, int mes, int ano);
+
+
 	void calcAge(int dia, int mes, int ano);
-	void printAge();
 	int getAge();
 
-	void printName();
+
 	string getName();
 
-	void printBirthdate();
-	int getBirthdate();
+
 
 };

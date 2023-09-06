@@ -18,7 +18,8 @@ public:
 	~Aluno();
 
 	void setRA(int ra);
-	void showRA();
+	int getRA();
 
 	void setDepAfil(Departamento* dep);
+	Departamento* getDepAfil();
 };

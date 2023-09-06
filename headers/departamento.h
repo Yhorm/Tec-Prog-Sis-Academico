@@ -4,10 +4,9 @@
 
 using namespace std;
 
-class listaDisciplina;
-class elDisciplina;
 class Universidade;
 class Disciplina;
+class listaDisciplina;
 
 class Departamento 
 {
@@ -21,16 +20,15 @@ class Departamento
 	public:
 		
 
-		Departamento(std::string dName = "");
+		Departamento();
 		~Departamento();
 		
-		void Inicializa(std:: string dName = "");
 		void setDepName(std::string dName = "");
 		string getDepName();
-		void printDepName();
 		int getId();
 
 		void setUni(Universidade* uni);
+		Universidade* getUni();
 
 		void setDisciplina(Disciplina* dis);
 		void listDisciplina();

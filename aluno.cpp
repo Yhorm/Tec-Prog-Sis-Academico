@@ -1,6 +1,5 @@
 #include "headers/aluno.h"
 
-//CONSTRUTORAS E DESTRUTORA
 Aluno::Aluno(int dia, int mes, int ano, std::string nome, int r, int i) :
 	Pessoa(dia, mes, ano, nome)
 {
@@ -14,20 +13,24 @@ Aluno::~Aluno()
 {
 }
 
-//SETA O RA DO ALUNO.
+
 void Aluno::setRA(int ra)
 {
 	RA = ra;
 }
 
-//MOSTRA MAS N RETORNA.
-void Aluno::showRA()
+
+int Aluno::getRA()
 {
-	cout << pName << " --- RA: "<< RA << endl;
+	return RA;
 }
 
-//SETA O DEPARTAMENTO EM QUE O ALUNO ESTA ESTUDANDO:
 void Aluno::setDepAfil(Departamento* dep)
 {
 	aDepAfiliado = dep;
+}
+
+Departamento* Aluno::getDepAfil()
+{
+	return aDepAfiliado;
 }

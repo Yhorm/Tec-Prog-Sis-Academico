@@ -18,8 +18,11 @@ class Principal
 		Professor simao;
 		Professor newton;
 		Professor einstein;
+
 		Aluno felipe;
-		Aluno jorge;
+		Aluno BBB;
+		Aluno CCC;
+		Aluno DDD;
 		
 		Universidade UTFPR;
 		Universidade princeton;
@@ -30,14 +33,15 @@ class Principal
 		Departamento mathCambridge;
 
 		Disciplina Comp1_2006;
-		Disciplina Introd_Alg_2007;
+		Disciplina IntrodAlg_2007;
 		Disciplina Comp2_2007;
 		Disciplina Metodos2_2007;
 
-		listaAlunos listAlunos;
 		listaDepartamento listDeps;
 		listaDisciplina listDis;
 		listUniversidade listUni;
+		listaAlunos listAlunos;
+
 
 		int diaAt = 0;
 		int mesAt = 0;
@@ -50,8 +54,8 @@ class Principal
 
 		void Inicializa();
 		void InicializaUniversidades();
-		void InicializaProfessores();
 		void InicializaDepartamentos();
+		void InicializaProfessores();
 		void InicializaAlunos();
 		void InicializaDisciplina();
 

@@ -1,8 +1,15 @@
 #include "headers/disciplina.h"
 
-Disciplina::Disciplina(std::string nome, std::string area, int id)
+Disciplina::Disciplina(std::string nome, std::string area, int i) :
+	objlAlunos(-1, "")
 {
-	Inicializa(nome, area, id);
+	dNome = nome;
+	areaConhecimento = area;
+	id = id;
+	dProx = NULL;
+	dAnt = NULL;
+
+	
 }
 
 Disciplina::~Disciplina()
@@ -13,15 +20,10 @@ Disciplina::~Disciplina()
 	depAssociado = NULL;
 	dProx = NULL;
 	dAnt = NULL;
+
 }
 
-void Disciplina::Inicializa(std::string nome, std::string area, int id)
-{
-	setName(nome);
-	setId(id);
-	dProx = NULL;
-	dAnt = NULL;
-}
+
 
 void Disciplina::setName(std::string nome)
 {
