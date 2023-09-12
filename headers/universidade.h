@@ -2,13 +2,13 @@
 #include <iostream>
 
 #include "../headers/listaDepartamento.h"
-
+#include "entidade.h"
 
 
 using namespace std;
 
 
-class Universidade
+class Universidade : public Entidade
 {
 private:
 
@@ -16,7 +16,7 @@ private:
 	listaDepartamento objLisDep;
 
 public:
-	Universidade(std::string nome = "");
+	Universidade(std::string nome = "", int i = -1, bool s = true);
 	~Universidade();
 
 	void setName(std::string nome = "");

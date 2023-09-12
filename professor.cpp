@@ -1,8 +1,8 @@
 #include "headers/professor.h"
 
 //CONSTRUTORAS E DESTRUTORAS:
-Professor::Professor(int dia, int mes, int ano, std::string nome) :
-	Pessoa(dia, mes, ano, nome)
+Professor::Professor(int dia, int mes, int ano, std::string nome, int i, bool s) :
+	Pessoa(dia, mes, ano, nome, i, s)
 {
 	profUniAfil = NULL;
 	profDepAfil = NULL;

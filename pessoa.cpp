@@ -1,13 +1,13 @@
 #include "headers/pessoa.h"
 //CONSTRUTORAS E DESTRUTORA
-Pessoa::Pessoa(int dia, int mes, int ano, std::string nome)
+Pessoa::Pessoa(int dia, int mes, int ano, std::string nome, int i, bool s) :
+	Entidade(i, s)
 {
 	bDay = dia;
 	bMonth = mes;
 	bYear = ano;
 	pName = nome;
 	age = -1;
-
 }
 
 
@@ -58,4 +58,17 @@ int Pessoa::getAge()
 string Pessoa::getName()
 {
 	return pName;
+}
+
+int Pessoa::getBirthday()
+{
+	return bDay;
+}
+int Pessoa::getBirthmonth()
+{
+	return bMonth;
+}
+int Pessoa::getBirthyear()
+{
+	return bYear;
 }

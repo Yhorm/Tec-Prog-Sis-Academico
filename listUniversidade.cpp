@@ -11,9 +11,9 @@ listUniversidade::listUniversidade(int n , string no)
 }
 listUniversidade::~listUniversidade()
 {
-	countUni = -1;
+	countUni = 0;
 	numUni = -1;
-	nome = "";
+	nome = " ";
 
 	elUniversidade* aux1;
 	elUniversidade* aux2;
@@ -90,6 +90,7 @@ Universidade* listUniversidade::localizar(string n)
 {
 	elUniversidade* aux;
 	aux = uPrim;
+
 	while (aux != NULL)
 	{
 		if (0 == n.compare(aux->getName()))
@@ -99,4 +100,69 @@ Universidade* listUniversidade::localizar(string n)
 		aux = aux->getProx();
 	}
 	return NULL;
+}
+
+void listUniversidade::salvarUnis()
+{
+	ofstream GravadorUniversidade("universidades.dat", ios::out);
+
+	if (!GravadorUniversidade)
+	{
+		cerr << "Não foi possível criar o arquivo." << endl;
+		cout << endl;
+		cerr << "PRESSIONE QUALQUER TECLA PARA VOLTAR" << endl;
+		fflush(stdin);
+		cin >> ws;
+		(void)getchar();
+		return;
+	}
+
+	elUniversidade* elAux = uPrim;
+
+	while (elAux != NULL)
+	{
+		Universidade* uAux = elAux->getUni();
+
+		GravadorUniversidade << uAux->getUniName() << ' ' << uAux->getId() << ' ' << uAux->getStatic() << endl;
+
+		elAux = elAux->getProx();
+	}
+
+	GravadorUniversidade.close();
+}
+void listUniversidade::recuperarUnis()
+{
+	ifstream RecuperadorUniversidade("Universidades.dat", ios::in);
+
+	if (!RecuperadorUniversidade)
+	{
+		cerr << "Arquivo não encontrado." << endl;
+		cout << endl;
+		cerr << "PRESSIONE QUALQUER TECLA PARA SAIR" << endl;
+		fflush(stdin);
+		cin >> ws;
+		(void)getchar();
+		return;
+	}
+
+	while (!RecuperadorUniversidade.eof())
+	{
+		Universidade* aux = NULL;
+		string name;
+		bool s;
+		int id;
+
+		RecuperadorUniversidade >> name >> id >> s;
+		
+		if (0 != name.compare(" "))
+		{
+			aux = new Universidade();
+			aux->setName(name);
+			aux->setId(id);
+			aux->setStatic(s);
+
+			setUni(aux);
+		}
+	}
+	RecuperadorUniversidade.close();
 }

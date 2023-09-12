@@ -1,15 +1,13 @@
 #include "headers/disciplina.h"
 
-Disciplina::Disciplina(std::string nome, std::string area, int i) :
-	objlAlunos(-1, "")
+Disciplina::Disciplina(std::string nome, std::string area, int i, bool s) :
+	objlAlunos(-1, ""),
+	Entidade(i, s)
 {
 	dNome = nome;
 	areaConhecimento = area;
-	id = id;
 	dProx = NULL;
 	dAnt = NULL;
-
-	
 }
 
 Disciplina::~Disciplina()

@@ -137,6 +137,7 @@
     <ClInclude Include="headers\elDepartamento.h" />
     <ClInclude Include="headers\eldisciplina.h" />
     <ClInclude Include="headers\elUniverisdade.h" />
+    <ClInclude Include="headers\entidade.h" />
     <ClInclude Include="headers\listaalunos.h" />
     <ClInclude Include="headers\listaDepartamento.h" />
     <ClInclude Include="headers\listadisciplina.h" />
@@ -147,22 +148,23 @@
     <ClInclude Include="headers\universidade.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="aluno.cpp" />
+    <ClCompile Include="departamento.cpp" />
     <ClCompile Include="disciplina.cpp" />
+    <ClCompile Include="elalunos.cpp" />
     <ClCompile Include="elDepartamento.cpp" />
+    <ClCompile Include="eldisciplina.cpp" />
     <ClCompile Include="elUniverisdade.cpp" />
+    <ClCompile Include="entidade.cpp" />
     <ClCompile Include="listaalunos.cpp" />
     <ClCompile Include="listaDepartamento.cpp" />
     <ClCompile Include="listadisciplina.cpp" />
     <ClCompile Include="listUniversidade.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="departamento.cpp" />
-    <ClCompile Include="aluno.cpp" />
-    <ClCompile Include="elalunos.cpp" />
-    <ClCompile Include="eldisciplina.cpp" />
-    <ClCompile Include="professor.cpp" />
-    <ClCompile Include="principal.cpp" />
-    <ClCompile Include="universidade.cpp" />
     <ClCompile Include="pessoa.cpp" />
+    <ClCompile Include="principal.cpp" />
+    <ClCompile Include="professor.cpp" />
+    <ClCompile Include="universidade.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

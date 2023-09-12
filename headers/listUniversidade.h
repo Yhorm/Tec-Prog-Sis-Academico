@@ -3,7 +3,8 @@
 #include <iostream>
 #include "universidade.h"
 #include "elUniverisdade.h"
-
+#include <fstream>
+#include <string>
 
 class listUniversidade
 {
@@ -28,5 +29,8 @@ public:
 	void listUnis2();
 
 	Universidade* localizar(string n = "");
+
+	void salvarUnis();
+	void recuperarUnis();
 };
 

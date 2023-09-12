@@ -4,18 +4,17 @@
 
 #include "departamento.h"
 #include "listaalunos.h"
+#include "entidade.h"
 
 
 using namespace std;
 
-class Disciplina
+class Disciplina : public Entidade
 {
 private:
+
 	string dNome;
 	string areaConhecimento;
-
-	int id;
-
 	listaAlunos objlAlunos;
 	Departamento* depAssociado;
 
@@ -24,7 +23,7 @@ private:
 
 public:
 
-	Disciplina(std::string nome = "", std::string area = "", int i = -1);
+	Disciplina(std::string nome = "", std::string area = "", int i = -1, bool s = true);
 	~Disciplina();
 
 	void setName(std::string nome);

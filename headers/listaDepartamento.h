@@ -3,7 +3,8 @@
 #include <iostream>
 #include "departamento.h"
 #include "elDepartamento.h"
-
+#include <fstream>
+#include <string>
 
 class listaDepartamento
 {
@@ -20,10 +21,13 @@ public:
 	~listaDepartamento();
 
 	void setDep(Departamento* dep);
-	void setName(string no);
+	void setName(std::string no);
 	void listDep1();
 	void listDep2();
 
 	Departamento* localizar(string n);
+
+	void salvarDeps();
+	void recuperarDeps();
 };
 

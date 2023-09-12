@@ -1,6 +1,6 @@
 #include "headers/aluno.h"
 
-Aluno::Aluno(int dia, int mes, int ano, std::string nome, int r, int i) :
+Aluno::Aluno(int dia, int mes, int ano, std::string nome, int r, int i, bool s) :
 	Pessoa(dia, mes, ano, nome)
 {
 	aDepAfiliado = NULL;
@@ -33,4 +33,13 @@ void Aluno::setDepAfil(Departamento* dep)
 Departamento* Aluno::getDepAfil()
 {
 	return aDepAfiliado;
+}
+
+void Aluno::setDisAfil(Disciplina* dis)
+{
+	aDiscAfiliado = dis;
+}
+Disciplina* Aluno::getDisAfil()
+{
+	return aDiscAfiliado;
 }

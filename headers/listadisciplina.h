@@ -2,7 +2,8 @@
 
 #include "eldisciplina.h"
 #include "disciplina.h"
-
+#include <fstream>
+#include <string>
 using namespace std;
 
 class listaDisciplina
@@ -28,5 +29,8 @@ public:
 	void listDisciplina2();
 
 	Disciplina* localiza(string n);
+
+	void salvarDis();
+	void recuperarDis();
 };
 

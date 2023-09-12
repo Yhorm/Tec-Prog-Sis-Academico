@@ -2,7 +2,8 @@
 
 #include "elalunos.h"
 #include "aluno.h"
-
+#include <fstream>
+#include <string>
 using namespace std;
 
 class listaAlunos
@@ -24,5 +25,7 @@ public:
 
 	void resizeAlunos(int n);
 
+	void salvarAlunos();
+	void recuperarAlunos();
 };
 

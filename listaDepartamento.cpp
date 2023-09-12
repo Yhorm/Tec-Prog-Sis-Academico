@@ -1,4 +1,4 @@
-#include "../Tec-Prog-Sis-Academico/headers/listaDepartamento.h"
+#include "headers/listaDepartamento.h"
 
 listaDepartamento::listaDepartamento(int n, std::string no)
 {
@@ -12,9 +12,9 @@ listaDepartamento::listaDepartamento(int n, std::string no)
 }
 listaDepartamento::~listaDepartamento()
 {
-	countDeps = -1;
+	countDeps = 0;
 	numDeps = -1;
-	nome = "";
+	nome = " ";
 
 	elDepartamento* aux1;
 	elDepartamento* aux2;
@@ -64,7 +64,7 @@ void listaDepartamento::setDep(Departamento* dep)
 	}
 }
 
-void listaDepartamento::setName(string no)
+void listaDepartamento::setName(std::string no)
 {
 	nome = no;
 }
@@ -103,4 +103,64 @@ Departamento* listaDepartamento::localizar(string n)
 		aux = aux->getProx();
 	}
 	return NULL;
+}
+
+void listaDepartamento::salvarDeps()
+{
+	ofstream GravadorDeps("departamento.dat", ios::out);
+
+	if (!GravadorDeps)
+	{
+		cerr << "Não foi possível criar o arquivo." << endl;
+		fflush(stdin);
+		cin >> ws;
+		(void)getchar();
+		return;
+	}
+
+	elDepartamento* elAux = dPrim;
+
+	while (elAux != NULL)
+	{
+		Departamento* dAux = elAux->getDep();
+
+		GravadorDeps << dAux->getDepName() << ' ' << dAux->getId() << ' ' << dAux->getStatic() << endl;
+
+		elAux = elAux->getProx();
+	}
+	GravadorDeps.close();
+}
+void listaDepartamento::recuperarDeps()
+{
+	ifstream RecuperadorDeps("departamento.dat", ios::in);
+
+	if (!RecuperadorDeps)
+	{
+		cerr << "Arquivo não encontrado." << endl;
+		fflush(stdin);
+		cin >> ws;
+		(void)getchar();
+		return;
+	}
+
+	while (!RecuperadorDeps.eof())
+	{
+		Departamento* aux;
+		string name;
+		int id;
+		bool s;
+
+		RecuperadorDeps >> name >> id >> s;
+
+		if (0 != name.compare(" "))
+		{
+			aux = new Departamento();
+			aux->setDepName(name);
+			aux->setId(id);
+			aux->setStatic(s);
+
+			setDep(aux);
+		}
+	}
+	RecuperadorDeps.close();
 }

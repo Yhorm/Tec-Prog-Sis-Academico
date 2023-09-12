@@ -10,7 +10,9 @@
 #include "../headers/listaDepartamento.h"
 #include "../headers/listadisciplina.h"
 #include "../headers/listUniversidade.h"
+#include <string>
 
+using namespace std;
 
 class Principal 
 {
@@ -46,6 +48,12 @@ class Principal
 		int diaAt = 0;
 		int mesAt = 0;
 		int anoAt = 0;
+
+		int idProf = 0;
+		int idAluno = 0;
+		int idDisci = 0;
+		int idDep = 0;
+		int idUni = 0;
 	public:
 
 		Principal();
@@ -69,11 +77,25 @@ class Principal
 		void Menu();
 		void menuCad();
 		void menuExec();
+		void menuSalvar();
+		void menuRecuperar();
 
 		void cadAluno();
 		void cadDisci();
 		void cadDep();
 		void cadUni();
 
+
+		void salvarTudo();
+		void salvarAlunos();
+		void salvarDisci();
+		void salvarDeps();
+		void salvarUnis();
+
+		void recuperarTudo();
+		void recuperarAlunos();
+		void recuperarDis();
+		void recuperarDeps();
+		void recuperarUnis();
 };
 

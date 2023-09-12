@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <list>
+#include "entidade.h"
 
 using namespace std;
 
@@ -8,19 +9,18 @@ class Universidade;
 class Disciplina;
 class listaDisciplina;
 
-class Departamento 
+class Departamento : public Entidade
 {
 	private: 
-		string depName;
-		int id;
-		Universidade* uniPoint;
 
+		string depName;
+		Universidade* uniPoint;
 		listaDisciplina* objListDisci;
 
 	public:
 		
 
-		Departamento();
+		Departamento(int i = -1, bool s = true);
 		~Departamento();
 		
 		void setDepName(std::string dName = "");

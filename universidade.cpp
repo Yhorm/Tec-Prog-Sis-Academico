@@ -4,7 +4,8 @@
 using namespace std;
 
 //CONSTRUTORAS E DESTRUTORAS:
-Universidade::Universidade(std::string nome) :
+Universidade::Universidade(std::string nome, int i, bool s) :
+	Entidade(i, s),
 	objLisDep(-1,"")
 
 {

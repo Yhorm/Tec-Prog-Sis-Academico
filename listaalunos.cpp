@@ -95,3 +95,67 @@ void listaAlunos::resizeAlunos(int n)
 	numAlunos = n;
 
 }
+
+void listaAlunos::salvarAlunos()
+{
+	ofstream GravadorAlunos ("alunos.dat", ios::out);
+
+	if (!GravadorAlunos)
+	{
+		cerr << "Não foi possível criar o arquivo." << endl;
+		fflush(stdin);
+		cin >> ws;
+		(void)getchar();
+		return;
+	}
+	
+	elAluno* elAlaux = alunoPrim;
+
+	while (elAlaux != NULL)
+	{
+		Aluno* auxAl = elAlaux->getAluno();
+
+		GravadorAlunos << auxAl->getName() << ' ' << auxAl->getBirthday() << ' ' << auxAl->getBirthmonth() << ' ' << auxAl->getBirthyear() << ' ' << auxAl->getRA() 
+			<< ' ' << auxAl->getId() << ' ' << auxAl->getStatic() << endl;
+		elAlaux = elAlaux->getProx();
+	}
+	GravadorAlunos.close();
+}
+void listaAlunos::recuperarAlunos()
+{
+	ifstream RecuperadorAlunos("alunos.dat", ios::in);
+	if (!RecuperadorAlunos)
+	{
+		cerr << "Arquivo não encontrado." << endl;
+		fflush(stdin);
+		cin >> ws;
+		(void)getchar();
+		return;
+	}
+	
+	
+	while (!RecuperadorAlunos.eof())
+	{
+		Aluno* aux = NULL;
+		int id;
+		int day, month, year;
+		int ra;
+		string name;
+		bool s;
+
+		RecuperadorAlunos >> name >> day >> month >> year >> ra >> id >> s;
+		
+		if (0 != name.compare(" "))
+		{
+			aux = new Aluno();
+			aux->setId(id);
+			aux->setName(name);
+			aux->setRA(ra);
+			aux->setBirthdate(day, month, year);
+			aux->setStatic(s);
+			
+			setAluno(aux);
+		}
+	}
+	RecuperadorAlunos.close();
+}

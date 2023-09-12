@@ -7,8 +7,10 @@
 #include "headers/eldisciplina.h"
 
 //CONSTRUTORAS E DESTRUTORAS:
-Departamento::Departamento()
+Departamento::Departamento(int i, bool s) :
+	Entidade(i, s)
 {
+	uniPoint = NULL;
 	objListDisci = new listaDisciplina(-1, " ");
 }
 

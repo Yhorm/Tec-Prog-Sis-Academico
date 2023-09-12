@@ -12,9 +12,9 @@ listaDisciplina::listaDisciplina(int nDis, std::string n)
 
 listaDisciplina::~listaDisciplina() 
 {
-	countDisciplinas = -1;
+	countDisciplinas = 0;
 	numDisciplinas = -1;
-	nome = "";
+	nome = " ";
 
 	elDisciplina* aux1 = disPrim;
 	elDisciplina* aux2 = aux1;
@@ -112,4 +112,64 @@ Disciplina* listaDisciplina::localiza(string n)
 	}
 
 	return NULL;
+}
+
+void listaDisciplina::salvarDis()
+{
+	ofstream GravadorDisciplinas("disciplinas.dat", ios::out);
+
+	if (!GravadorDisciplinas)
+	{
+		cerr << "Arquivo não pode ser criado." << endl;
+		fflush(stdin);
+		cin >> ws;
+		(void)getchar();
+		return;
+	}
+
+	elDisciplina* elAux = disPrim;
+
+	while (elAux != NULL)
+	{
+		Disciplina* dAux = elAux->getDisciplina();
+
+		GravadorDisciplinas << dAux->getName() << ' ' << dAux->getId() << ' ' << dAux->getStatic() << endl;
+
+		elAux = elAux->getProx();
+	}
+	GravadorDisciplinas.close();
+}
+void listaDisciplina::recuperarDis()
+{
+	ifstream RecuperadorDisciplinas("disciplinas.dat", ios::in);
+
+	if (!RecuperadorDisciplinas)
+	{
+		cerr << "Arquivo não encontrado." << endl;
+		fflush(stdin);
+		cin >> ws;
+		(void)getchar();
+		return;
+	}
+
+	while (!RecuperadorDisciplinas.eof())
+	{
+		Disciplina* aux = NULL;
+		string name;
+		int id;
+		bool s;
+
+		RecuperadorDisciplinas >> name >> id >> s;
+
+		if (0 != name.compare(" "))
+		{
+			aux = new Disciplina();
+			aux->setName(name);
+			aux->setId(id);
+			aux->setStatic(s);
+
+			setDisciplina(aux);
+		}
+	}
+	RecuperadorDisciplinas.close();
 }
