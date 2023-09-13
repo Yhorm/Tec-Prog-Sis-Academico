@@ -123,8 +123,10 @@ void listaDepartamento::salvarDeps()
 	while (elAux != NULL)
 	{
 		Departamento* dAux = elAux->getDep();
+		string name = dAux->getDepName();
+		std::replace(name.begin(), name.end(), ' ', '_');
 
-		GravadorDeps << dAux->getDepName() << ' ' << dAux->getId() << ' ' << dAux->getStatic() << endl;
+		GravadorDeps << name << ' ' << dAux->getId() << ' ' << dAux->getStatic() << endl;
 
 		elAux = elAux->getProx();
 	}
@@ -153,6 +155,7 @@ void listaDepartamento::recuperarDeps()
 		if (0 != name.compare(" "))
 		{
 			aux = new Departamento();
+			std::replace(name.begin(), name.end(), '_', ' ');
 			aux->setDepName(name);
 			aux->setId(id);
 			aux->setStatic(s);

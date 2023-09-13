@@ -5,6 +5,7 @@
 #include "elUniverisdade.h"
 #include <fstream>
 #include <string>
+#include <algorithm>
 
 class listUniversidade
 {

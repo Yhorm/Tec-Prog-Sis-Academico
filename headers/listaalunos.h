@@ -4,6 +4,8 @@
 #include "aluno.h"
 #include <fstream>
 #include <string>
+#include <algorithm>
+
 using namespace std;
 
 class listaAlunos

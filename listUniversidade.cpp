@@ -122,8 +122,10 @@ void listUniversidade::salvarUnis()
 	while (elAux != NULL)
 	{
 		Universidade* uAux = elAux->getUni();
+		string name = uAux->getUniName();
+		std::replace(name.begin(), name.end(), ' ', '_');
 
-		GravadorUniversidade << uAux->getUniName() << ' ' << uAux->getId() << ' ' << uAux->getStatic() << endl;
+		GravadorUniversidade << name << ' ' << uAux->getId() << ' ' << uAux->getStatic() << endl;
 
 		elAux = elAux->getProx();
 	}
@@ -154,6 +156,8 @@ void listUniversidade::recuperarUnis()
 		if (0 != name.compare(" "))
 		{
 			aux = new Universidade();
+
+			std::replace(name.begin(), name.end(), '_', ' ');
 			aux->setName(name);
 			aux->setId(id);
 			aux->setStatic(s);

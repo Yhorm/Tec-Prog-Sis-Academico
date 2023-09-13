@@ -5,6 +5,7 @@
 #include "elDepartamento.h"
 #include <fstream>
 #include <string>
+#include <algorithm>
 
 class listaDepartamento
 {

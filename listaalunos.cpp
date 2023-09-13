@@ -114,8 +114,11 @@ void listaAlunos::salvarAlunos()
 	while (elAlaux != NULL)
 	{
 		Aluno* auxAl = elAlaux->getAluno();
+		string nome = elAlaux->getName();
+		std::replace(nome.begin(), nome.end(), ' ', '_');
 
-		GravadorAlunos << auxAl->getName() << ' ' << auxAl->getBirthday() << ' ' << auxAl->getBirthmonth() << ' ' << auxAl->getBirthyear() << ' ' << auxAl->getRA() 
+
+		GravadorAlunos << nome << ' ' << auxAl->getBirthday() << ' ' << auxAl->getBirthmonth() << ' ' << auxAl->getBirthyear() << ' ' << auxAl->getRA() 
 			<< ' ' << auxAl->getId() << ' ' << auxAl->getStatic() << endl;
 		elAlaux = elAlaux->getProx();
 	}
@@ -146,6 +149,7 @@ void listaAlunos::recuperarAlunos()
 		if (0 != name.compare(" "))
 		{
 			aux = new Aluno();
+			std::replace(name.begin(), name.end(), '_', ' ');
 			aux->setId(id);
 			aux->setName(name);
 			aux->setRA(ra);

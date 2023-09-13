@@ -132,8 +132,10 @@ void listaDisciplina::salvarDis()
 	while (elAux != NULL)
 	{
 		Disciplina* dAux = elAux->getDisciplina();
+		string name = dAux->getName();
+		replace(name.begin(), name.end(), ' ', '_');
 
-		GravadorDisciplinas << dAux->getName() << ' ' << dAux->getId() << ' ' << dAux->getStatic() << endl;
+		GravadorDisciplinas << name << ' ' << dAux->getId() << ' ' << dAux->getStatic() << endl;
 
 		elAux = elAux->getProx();
 	}
@@ -162,6 +164,7 @@ void listaDisciplina::recuperarDis()
 		if (0 != name.compare(" "))
 		{
 			aux = new Disciplina();
+			std::replace(name.begin(), name.end(), '_', ' ');
 			aux->setName(name);
 			aux->setId(id);
 			aux->setStatic(s);
