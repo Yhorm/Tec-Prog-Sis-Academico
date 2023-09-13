@@ -141,7 +141,12 @@ void listaDisciplina::salvarDis()
 }
 void listaDisciplina::recuperarDis()
 {
+	Disciplina* aux = NULL;
+	string name;
+	int id;
+	bool s;
 	ifstream RecuperadorDisciplinas("disciplinas.dat", ios::in);
+
 
 	if (!RecuperadorDisciplinas)
 	{
@@ -152,15 +157,8 @@ void listaDisciplina::recuperarDis()
 		return;
 	}
 
-	while (!RecuperadorDisciplinas.eof())
+	while (RecuperadorDisciplinas >> name >> id >> s)
 	{
-		Disciplina* aux = NULL;
-		string name;
-		int id;
-		bool s;
-
-		RecuperadorDisciplinas >> name >> id >> s;
-
 		if (0 != name.compare(" "))
 		{
 			aux = new Disciplina();
@@ -169,6 +167,7 @@ void listaDisciplina::recuperarDis()
 			aux->setStatic(s);
 
 			setDisciplina(aux);
+
 		}
 	}
 	RecuperadorDisciplinas.close();

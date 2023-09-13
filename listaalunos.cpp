@@ -123,6 +123,13 @@ void listaAlunos::salvarAlunos()
 }
 void listaAlunos::recuperarAlunos()
 {
+	Aluno* aux = NULL;
+	int id;
+	int day, month, year;
+	int ra;
+	string name;
+	bool s;
+
 	ifstream RecuperadorAlunos("alunos.dat", ios::in);
 	if (!RecuperadorAlunos)
 	{
@@ -134,17 +141,8 @@ void listaAlunos::recuperarAlunos()
 	}
 	
 	
-	while (!RecuperadorAlunos.eof())
-	{
-		Aluno* aux = NULL;
-		int id;
-		int day, month, year;
-		int ra;
-		string name;
-		bool s;
-
-		RecuperadorAlunos >> name >> day >> month >> year >> ra >> id >> s;
-		
+	while (RecuperadorAlunos >> name >> day >> month >> year >> ra >> id >> s)
+	{		
 		if (0 != name.compare(" "))
 		{
 			aux = new Aluno();

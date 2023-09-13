@@ -268,6 +268,7 @@ void Principal::Menu()
 		break;
 		case 5: 
 		{
+			system("cls");
 			cout << "------------------------------" << endl;
 			cout << "SAINDO DO SISTEMA" << endl;
 			cout << "------------------------------" << endl;
@@ -337,6 +338,7 @@ void Principal::menuCad()
 			default: 
 			{
 				cerr << "OPÇÃO INVÁLIDA - PRESSIONE QQR TECLA" << endl;
+				fflush(stdin);
 				cin >> ws;
 				(void)getchar();
 			}
@@ -346,7 +348,7 @@ void Principal::menuCad()
 void Principal::menuExec()
 {
 	int opt = 0;
-	while(opt != 6)
+	while(opt != 5)
 	{
 		fflush(stdin);
 		system("cls");
@@ -397,7 +399,7 @@ void Principal::menuExec()
 			fflush(stdin);
 			system("pause");
 		}
-		case 6:
+		case 5:
 		{
 			cout << "SAINDO DO SISTEMA." << endl;
 		}
@@ -405,6 +407,7 @@ void Principal::menuExec()
 		default:
 		{
 			cerr << "OPÇÃO INVÁLIDA. - PRESSIONE QQR TECLA PARA SAIR" << endl;
+			fflush(stdin);
 			cin >> ws;
 			(void)getchar();
 		}
@@ -472,12 +475,12 @@ void Principal::menuSalvar()
 		default:
 			{
 			cerr << "OPÇÃO INVALIDA - APERTE QUALQUER TECLA PARA SAIR." << endl;
+			fflush(stdin);
 			cin >> ws;
 			(void)getchar();
 			}
 		}
 	}
-
 }
 void Principal::menuRecuperar()
 {
@@ -486,7 +489,7 @@ void Principal::menuRecuperar()
 	{
 		fflush(stdin);
 		system("cls");
-		cout << "-------------------------------------------------";
+		cout << "-------------------------------------------------" << endl;
 		cout << "-------- SELECIONE UMA DAS OPÇÕES ABAIXO --------" << endl;
 		cout << endl;
 		cout << "-------- 1 - RECUPERAR TUDO --------------------" << endl;
@@ -501,7 +504,7 @@ void Principal::menuRecuperar()
 		cout << endl;
 		cout << "-------- 6 - SAIR ---------------------------" << endl;
 		cout << endl;
-		cout << "-------------------------------------------------";
+		cout << "-------------------------------------------------" << endl;
 		cin >> ws;
 		cin >> opt;
 
@@ -540,6 +543,7 @@ void Principal::menuRecuperar()
 		default:
 			{
 			cerr << "OPÇÃO INVALIDA - APERTE QUALQUER TECLA PARA SAIR." << endl;
+			fflush(stdin);
 			cin >> ws;
 			(void)getchar();
 			}
@@ -562,90 +566,110 @@ void Principal::cadAluno()
 	Departamento* dep;
 	Disciplina* dis;
 
-
-	cout << "Digite o nome da universidade: " << endl;
-	fflush(stdin);
-
-	while (getline(cin, nomeUni))
+	cout << "Digite o nome do aluno." << endl;
+	while (getline(cin, nomeAluno))
 	{
-		if (nomeUni != "")
+		if (nomeDisci != "")
 		{
 			break;
 		}
 	}
-	
 
-	uni = listUni.localizar(nomeUni);
-	if (uni != NULL)
+	aluno = new Aluno();
+	aluno->setName(nomeAluno);
+
+	cout << "Digite a data de nascimento do aluno no formado DDMMYYYY: " << endl;
+	cin >> ws;
+	cin >> dia >> mes >> ano;
+	aluno->setBirthdate(dia, mes, ano);
+
+	cout << "Digite o RA do aluno: " << endl;
+	cin >> RA;
+	aluno->setRA(RA);
+	aluno->setId(idAluno++);
+	aluno->setStatic(false);
+
+
+	listAlunos.setAluno(aluno);
+	aluno->calcAge(diaAt, mesAt, anoAt);
+
+	cout << "Gostaria de cadastrar o aluno em uma Disciplina?" << endl << "1 - SIM" << endl << "2 - NÃO";
+	int opt = 0;
+	while (opt != 2)
 	{
-		cout << "Digite o nome do departamento: " << endl;
-		while (getline(cin, nomeDep))
+		cin >> ws;
+		cin >> opt;
+		switch (opt)
 		{
-			if (nomeDep != "")
+		case(1):
 			{
-				break;
-			}
-		}
-		dep = listDeps.localizar(nomeDep);
-		if (dep != NULL)
-		{
-			cout << "Digite o nome da disciplina: " << endl;
-			while (getline(cin, nomeDisci))
-			{
-				if (nomeDisci != "")
+				cout << "Digite o nome da universidade: " << endl;
+				fflush(stdin);
+				while (getline(cin, nomeUni))
 				{
-					break;
-				}
-			}
-
-			dis = listDis.localiza(nomeDisci);
-			if (dis != NULL)
-			{
-				cout << "Digite o nome do aluno." << endl;
-				while (getline(cin, nomeAluno))
-				{
-					if (nomeDisci != "")
+					if (nomeUni != "")
 					{
 						break;
 					}
 				}
+				uni = listUni.localizar(nomeUni);
+				if (uni != NULL)
+				{
+					cout << "Digite o nome do departamento: " << endl;
+					while (getline(cin, nomeDep))
+					{
+						if (nomeDep != "")
+						{
+							break;
+						}
+					}
+					dep = listDeps.localizar(nomeDep);
+					if (dep != NULL)
+					{
+						cout << "Digite o nome da disciplina: " << endl;
+						while (getline(cin, nomeDisci))
+						{
+							if (nomeDisci != "")
+							{
+								break;
+							}
+						}
 
-				aluno = new Aluno();
-				aluno->setName(nomeAluno);
-				
-				cout << "Digite a data de nascimento do aluno no formado DDMMYYYY: " << endl;
-				cin >> ws;
-				cin >> dia >> mes >> ano;
-				aluno->setBirthdate(dia, mes, ano);
-
-				cout << "Digite o RA do aluno: " << endl;
-				cin >> RA;
-				aluno->setRA(RA);
-				aluno->setDisAfil(dis);
-				aluno->setId(idAluno++);
-				aluno->setStatic(false);
-
-				listAlunos.setAluno(aluno);
-				dis->setAluno(aluno);
-
-
-				aluno->calcAge(diaAt, mesAt, anoAt);
-
+						dis = listDis.localiza(nomeDisci);
+						if (dis != NULL)
+						{
+							dis->setAluno(aluno);
+							aluno->setDisAfil(dis);
+						}
+						else
+						{
+							cerr << "Disciplina não existente." << endl;
+						}
+					}
+					else
+					{
+						cerr << "Departamento não existente." << endl;
+					}
+				}
+				else
+				{
+					cerr << "Universidade não existente." << endl;
+				}
 			}
-			else
+			break;
+		case (2):
 			{
-				cerr << "Disciplina não existente." << endl;
+				aluno->setDisAfil(NULL);
+				system("cls");
+				cout << "------------------------------" << endl;
+				cout << "SAINDO DO SISTEMA" << endl;
+				cout << "------------------------------" << endl;
 			}
-		}
-		else
-		{
-			cerr << "Departamento não existente." << endl;
+			break;
 		}
 	}
-	else
-	{
-		cerr << "Universidade não existente." << endl;
-	}
+
+
 }
 void Principal::cadDisci()
 {

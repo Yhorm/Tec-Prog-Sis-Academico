@@ -42,7 +42,7 @@ void listaDepartamento::setDep(Departamento* dep)
 	aux->setAnt(NULL);
 	aux->setProx(NULL);
 
-	if (countDeps < numDeps && dep != NULL || numDeps == -1 && dep != NULL)
+	if ((countDeps < numDeps) && dep != NULL || (numDeps == -1) && (dep != NULL))
 	{
 
 		if (dPrim == NULL)
@@ -132,6 +132,10 @@ void listaDepartamento::salvarDeps()
 }
 void listaDepartamento::recuperarDeps()
 {
+	Departamento* aux = NULL;
+	string name;
+	int id;
+	bool s;
 	ifstream RecuperadorDeps("departamento.dat", ios::in);
 
 	if (!RecuperadorDeps)
@@ -143,22 +147,15 @@ void listaDepartamento::recuperarDeps()
 		return;
 	}
 
-	while (!RecuperadorDeps.eof())
+
+	while (RecuperadorDeps >> name >> id >> s)
 	{
-		Departamento* aux;
-		string name;
-		int id;
-		bool s;
-
-		RecuperadorDeps >> name >> id >> s;
-
 		if (0 != name.compare(" "))
 		{
 			aux = new Departamento();
 			aux->setDepName(name);
 			aux->setId(id);
 			aux->setStatic(s);
-
 			setDep(aux);
 		}
 	}

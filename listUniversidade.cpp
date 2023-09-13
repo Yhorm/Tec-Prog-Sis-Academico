@@ -132,6 +132,10 @@ void listUniversidade::salvarUnis()
 }
 void listUniversidade::recuperarUnis()
 {
+	Universidade* aux = NULL;
+	string name;
+	bool s;
+	int id;
 	ifstream RecuperadorUniversidade("Universidades.dat", ios::in);
 
 	if (!RecuperadorUniversidade)
@@ -145,15 +149,8 @@ void listUniversidade::recuperarUnis()
 		return;
 	}
 
-	while (!RecuperadorUniversidade.eof())
-	{
-		Universidade* aux = NULL;
-		string name;
-		bool s;
-		int id;
-
-		RecuperadorUniversidade >> name >> id >> s;
-		
+	while (RecuperadorUniversidade >> name >> id >> s)
+	{		
 		if (0 != name.compare(" "))
 		{
 			aux = new Universidade();
